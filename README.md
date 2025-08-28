@@ -7,7 +7,8 @@ Instead, I opted for a more scalable, decentralized approach where each agent le
 
 ### Technical Implementation
 
-The library used for reinforcement learning was [Crux.jl](https://github.com/sisl/Crux.jl), which is currently the only julia rl library working properly. 
+The library used for reinforcement learning was [Crux.jl](https://github.com/sisl/Crux.jl), which is currently the only julia rl library working properly. It is built on [POMDPs.jl]() a julia library for partially observable MDPs. 
+
 The initial implementation involved creating a separate interface for adding RL training on top of a standard ABM. However, this approach made it difficult to seamlessly visualize and simulate the models with trained policies. This led to a more integrated and user-friendly solution: the creation of a new ABM type called `ReinforcementLearningABM`. This new type allows users to train, step, and plot their models with trained policies using the same familiar commands as other ABM types, streamlining the workflow.
 
 To demonstrate the functionality, I recreated classic ABM examples inspired by the Python library for agent-based models Mesa. These included the Boltzmann money model and the Wolf-Sheep Predation model. The Boltzmann model was chosen to serve as the main tutorial for the new ReinforcementLearningABM type, providing a clear guide for new users.
