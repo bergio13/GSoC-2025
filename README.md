@@ -11,6 +11,8 @@ The library used for reinforcement learning was [Crux.jl](https://github.com/sis
 
 The initial implementation involved creating a separate interface for adding RL training on top of a standard ABM. However, this approach made it difficult to seamlessly visualize and simulate the models with trained policies. This led to a more integrated and user-friendly solution: the creation of a new ABM type called `ReinforcementLearningABM`. This new type allows users to train, step, and plot their models with trained policies using the same familiar commands as other ABM types, streamlining the workflow.
 
+Two types of training were allowed which is particularly useful when there are multiple agent types. The first one called `sequential` trains the agents one after the other in a specific order. The agents all start with random policies and then as soon as they learn a policy the subsequent agent will face the agents that have already learned which will use their learned policies and the ones that still have to learn that will use random policies. The second is called 'simultaneous' and trains the agents in batches, each agent facing at the next iterations better versions of the previous agents.
+
 To demonstrate the functionality, I recreated classic ABM examples inspired by the Python library for agent-based models Mesa. These included the Boltzmann money model and the Wolf-Sheep Predation model. The Boltzmann model was chosen to serve as the main tutorial for the new ReinforcementLearningABM type, providing a clear guide for new users.
 
 The results clearly show the impact of the learned policies. You can see the distinct difference between agents moving randomly and agents using a learned policy in the videos below.
