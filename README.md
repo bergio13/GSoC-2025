@@ -11,9 +11,11 @@ The library used for reinforcement learning was [Crux.jl](https://github.com/sis
 
 The initial implementation involved creating a separate interface for adding RL training on top of a standard ABM. However, this approach made it difficult to seamlessly visualize and simulate the models with trained policies. This led to a more integrated and user-friendly solution: the creation of a new ABM type called `ReinforcementLearningABM`. This new type allows users to train, step, and plot their models with trained policies using the same familiar commands as other ABM types, streamlining the workflow.
 
-Two types of training were allowed which is particularly useful when there are multiple agent types. The first one called `sequential` trains the agents one after the other in a specific order. The agents all start with random policies and then as soon as they learn a policy the subsequent agent will face the agents that have already learned which will use their learned policies and the ones that still have to learn that will use random policies. The second is called 'simultaneous' and trains the agents in batches, each agent facing at the next iterations better versions of the previous agents.
+This new framework supports two distinct training types, which are particularly useful for models with multiple agent types:
+- *Sequential Training*: Agents are trained one after the other. Initially, all agents have random policies. As an agent's policy is learned and updated, subsequent agents will interact with the now-trained agents, while those that have not yet been trained will continue to use random policies.
+- *Simultaneous Training*: All agents are trained in batches. In each iteration, every agent faces progressively better versions of the other agents, which leads to a more balanced learning environment.
 
-To demonstrate the functionality, I recreated classic ABM examples inspired by the Python library for agent-based models Mesa. These included the Boltzmann money model and the Wolf-Sheep Predation model. The Boltzmann model was chosen to serve as the main tutorial for the new ReinforcementLearningABM type, providing a clear guide for new users.
+To demonstrate the functionality, I recreated classic ABM examples inspired by the Python library for agent-based models **Mesa**. These included the **Boltzmann Money model** and the **Wolf-Sheep model**. The Boltzmann model was chosen to serve as the main tutorial for the new `ReinforcementLearningABM` type, providing a clear guide for new users.
 
 The results clearly show the impact of the learned policies. You can see the distinct difference between agents moving randomly and agents using a learned policy in the videos below.
 
@@ -26,9 +28,15 @@ https://private-user-images.githubusercontent.com/68152031/481182466-fdf445a8-d8
 https://private-user-images.githubusercontent.com/68152031/481182475-c5bef9f9-aef0-4f22-b323-0475faae819a.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYzMzM5NjUsIm5iZiI6MTc1NjMzMzY2NSwicGF0aCI6Ii82ODE1MjAzMS80ODExODI0NzUtYzViZWY5ZjktYWVmMC00ZjIyLWIzMjMtMDQ3NWZhYWU4MTlhLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA4MjclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwODI3VDIyMjc0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI2ZjFhMTBlYzE3NWU0NmJmZWNjNTI1NGJkZWIwOTQzOThmZDQ4NmU0YTBmMjMwNGEzNTAzMDRmOTMxNWU3NjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.cijqpm_-lPgtHrmyww_o4HbHAydh0QTPJ5U-72rz_YE
 
 ### Deliverables and Contributions
-- Core Feature: Implemented the `ReinforcementLearningABM` type to seamlessly integrate RL training into agent-based models.
-- Examples and Tutorials: Developed a detailed tutorial using the Boltzmann model to guide users on how to apply RL techniques within the new framework.
-- Code: All code contributions are available in this [pull request](https://github.com/JuliaDynamics/Agents.jl/pull/1170)
+- **Core Feature**: Implemented the `ReinforcementLearningABM` type to seamlessly integrate RL training into agent-based models.
+- **Examples and Tutorials**: Developed an example that uses the Wolf-Sheep model and a  detailed tutorial using the Boltzmann model to guide users on how to apply RL techniques within the new framework.
+- **Code**: All code contributions are available in this [pull request](https://github.com/JuliaDynamics/Agents.jl/pull/1170).The pull request has been approved by one maintainer and is awaiting final review before merging.
+
+### Future Work
+The pull request is in a stable state. However, there are several areas for future improvement:
+- **User Interface**: Some functions could be polished to be more intuitive for users, and new functions could be created to allow for easier access to specific properties.
+- **Continuous Actions**: Currently, agents can only perform discrete actions. The model could be extended to allow for continuous actions.
+- **Individual Neural Networks**: A future extension could allow each agent to have its own neural network, which would be useful for certain multi-agent RL applications
 
 
 ## Links
