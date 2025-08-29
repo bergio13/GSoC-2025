@@ -16,7 +16,9 @@ This new framework supports two distinct training types, which are particularly 
 
 To demonstrate the functionality, I recreated classic ABM examples inspired by the Python library for agent-based models **Mesa**. These included the **Boltzmann Money model** and the **Wolf-Sheep model**. The Boltzmann model was chosen to serve as the main tutorial for the new `ReinforcementLearningABM` type, providing a clear guide for new users.
 
-The results clearly show the impact of the learned policies. You can see the distinct difference between agents moving randomly and agents using a learned policy in the videos below.
+The results clearly show the impact of the learned policies on agent behavior. The Boltzmann money model's objective is to reduce wealth inequality among agents. In the visualizations below, an agent's wealth is represented by its color: the closer to dark red, the poorer the agent, while the closer to dark green, the richer.
+
+The videos distinctly illustrate the difference between agents with random movements and those using learned policies. The agents using RL learn to transfer wealth more efficiently, which leads to a more equitable distribution over time.
 
 **Agents Moving Randomly:**
 
