@@ -31,11 +31,10 @@ https://private-user-images.githubusercontent.com/68152031/481182475-c5bef9f9-ae
 ### Deliverables and Contributions
 - **Core Feature**: Implemented the `ReinforcementLearningABM` type to seamlessly integrate RL training into agent-based models.
 - **Examples and Tutorials**: Developed an example that uses the Wolf-Sheep model and a  detailed tutorial using the Boltzmann model to guide users on how to apply RL techniques within the new framework.
-- **Code**: All code contributions are available in this [pull request](https://github.com/JuliaDynamics/Agents.jl/pull/1170).The pull request has been approved by one maintainer and is awaiting final review before merging.
+- **Code**: All code contributions are available in this [pull request](https://github.com/JuliaDynamics/Agents.jl/pull/1170).The pull request has been merged.
 
 ### Future Work
-The pull request is in a stable state. However, there are several areas for future improvement:
-- **User Interface**: Some functions could be polished to be more intuitive for users, and new functions could be created to allow for easier access to specific properties.
+There are several areas for future improvement:
 - **Continuous Actions**: Currently, agents can only perform discrete actions. The model could be extended to allow for continuous actions.
 - **Individual Neural Networks**: A future extension could allow each agent to have its own neural network, which would be useful for certain multi-agent RL applications
 
